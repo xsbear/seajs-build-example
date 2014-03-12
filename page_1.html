@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>page 1 - Seajs Custom Build Example</title>
+    <link href="/static/css/style.css?27e29e45a3cfe2c01e610eafea810da6" rel="stylesheet">
+</head>
+<body>
+    <h1>Page 1</h1>
+    <ul class="nav">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="page_1.html">page 1</a></li>
+        <li><a href="page_2.html">page 2</a></li>
+    </ul>
+    <p class="hint">以下内容由 handlebars 模板生成：</p>
+    <div class="now"></div>
+
+    <script src="/static/seajs/sea.js?dd15e8990287bb03055decac06b0af56"></script>
+    <script src="/static/seajs-config.js?2e7544293b1cd2d4a24274d61d0fee18"></script>
+    <script>
+        seajs.use((seajs.production ? 'dist/' : '') + 'page/page_1', function(m) {
+            $(function(){m.init()})
+        })
+    </script>
+</body>
+</html>
