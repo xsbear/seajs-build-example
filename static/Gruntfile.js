@@ -140,9 +140,9 @@ module.exports = function(grunt) {
     this.files.forEach(function(f) {
       var cmd_tpl = [
         'define("__MODULE_NAME__", ["' + options.handlebars_id + '"], function(require, exports, module) {',
-        '   var Handlebars = require("' + options.handlebars_id + '");',
-        '   __REPLACE_CODE__',
-        '   return ' + options.namespace + ';',
+        '  var Handlebars = require("' + options.handlebars_id + '");',
+        '  __REPLACE_CODE__',
+        '  return ' + options.namespace + ';',
         '})'
       ].join('\n');
 
@@ -191,7 +191,7 @@ module.exports = function(grunt) {
     var crypto = require('crypto');
     var fs = require('fs');
 
-    var src = ['../index.html', '../page_1.html', '../page_2.html'];
+    var src = ['../html/index.html', '../html/page_1.html', '../html/page_2.html'];
     src.forEach(function(filepath) {
       var RES_RE = /<(?:script|link)[\s\w="]+?(?:href|src)="\/static\/([^"]+?)(?:\?\w+)?"/gm
 
@@ -223,7 +223,7 @@ module.exports = function(grunt) {
     grunt.file.write(filepath, code);
 
     var WATERMARK = '<div style="position:fixed;top:0;left:0;z-index:99999;width:100px;height:30px;color:#fff;background-color:rgba(4, 79, 239, 0.3);font-size:18px;text-align:center">开发模式</div>';
-    var src = ['../index.html', '../page_1.html', '../page_2.html'];
+    var src = ['../html/index.html', '../html/page_1.html', '../html/page_2.html'];
     src.forEach(function(filepath) {
       code = grunt.file.read(filepath);
       if(mode === 'dev'){
