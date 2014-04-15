@@ -16,16 +16,16 @@ if(seajs.production){
 		"page/page_1.js?8ef48fa79941f1f7446bf1c82da74bbf"
 	],
 	[
-		"page/page_2.js",
-		"page/page_2.js?40f1239c3f4deafe05b1560619da7be8"
-	],
-	[
 		"templates/index.js",
-		"templates/index.js?67fb9e8ac404c732cda8f39bf8381510"
+		"templates/index.js?163de5709bd1d5dfda7f45552c337f0b"
 	],
 	[
 		"templates/page_1.js",
-		"templates/page_1.js?af4b8e4bf93c2a5bc87138ce3ef53783"
+		"templates/page_1.js?2c3d9a17222a42716ae0a23edf13b914"
+	],
+	[
+		"page/page_2.js",
+		"page/page_2.js?40f1239c3f4deafe05b1560619da7be8"
 	]
 ]
     });

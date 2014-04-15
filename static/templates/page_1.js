@@ -1,6 +1,6 @@
 define("templates/page_1.js", ["handlebars"], function(require, exports, module) {
-   var Handlebars = require("handlebars");
-   this["MMTPL"] = this["MMTPL"] || {};
+  var Handlebars = require("handlebars");
+  this["MMTPL"] = this["MMTPL"] || {};
 
 Handlebars.registerPartial("time", Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
@@ -46,5 +46,5 @@ helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partial
   buffer += "</span>\n</p>";
   return buffer;
   });
-   return this["MMTPL"];
+  return this["MMTPL"];
 })

@@ -89,11 +89,15 @@ module.exports = function(grunt) {
           }
       }
     },
-    cmdhbs: {
+    cmd_handlebars: {
       all: {
-          files: {
-            src: ['templates/*.js']
-          }
+        options: {
+          handlebars_id: 'handlebars',
+          exports: 'this["MMTPL"]',
+        },
+        files: {
+          src: ['templates/*.js']
+        }
       }
     },
     disthbs: {
@@ -127,42 +131,6 @@ module.exports = function(grunt) {
       }
     }
   });
-
-  // wrap cmd for handlebars precompile files
-  grunt.registerMultiTask('cmdhbs', 'Warp cmd for handlebars compile files', function() {
-    // Merge task-specific and/or target-specific options with these defaults.
-    var options = this.options({
-        handlebars_id: 'handlebars',
-        namespace: 'this["MMTPL"]'
-    });
-
-    // Iterate over all specified file groups.
-    this.files.forEach(function(f) {
-      var cmd_tpl = [
-        'define("__MODULE_NAME__", ["' + options.handlebars_id + '"], function(require, exports, module) {',
-        '  var Handlebars = require("' + options.handlebars_id + '");',
-        '  __REPLACE_CODE__',
-        '  return ' + options.namespace + ';',
-        '})'
-      ].join('\n');
-
-      var src = f.src.filter(function(filepath) {
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
-          return false;
-        } else {
-          return true;
-        }
-      });
-
-      src.forEach(function(filepath) {
-          var code = grunt.file.read(filepath);
-          var cmd_code = cmd_tpl.replace('__MODULE_NAME__', filepath).replace('__REPLACE_CODE__', code);
-          grunt.file.write(filepath, cmd_code)
-          grunt.log.oklns('Wrap cmd handlebars file: "' + filepath + '" OK.');
-      });
-    });
-  })
 
   // Distribute handlebars modules
   grunt.registerMultiTask('disthbs', 'Distribute handlebars modules', function() {
@@ -241,12 +209,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-cmd-transport');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-handlebars');
+  grunt.loadNpmTasks('grunt-cmd-handlebars');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
 
   grunt.registerTask('page', ['hashmap:all', 'transport:page', 'uglify:page']);
-  grunt.registerTask('hbs_dev', ['handlebars:all', 'cmdhbs:all']);
+  grunt.registerTask('hbs_dev', ['handlebars:all', 'cmd_handlebars:all']);
   grunt.registerTask('hbs_dist', ['uglify:handlebars', 'disthbs:all']);
   grunt.registerTask('dev', ['mode:dev', 'watch']);
   grunt.registerTask('prd', ['mode:prd']);
