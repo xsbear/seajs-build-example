@@ -1,6 +1,6 @@
 define("templates/page_1.js", ["handlebars"], function(require, exports, module) {
   var Handlebars = require("handlebars");
-  this["MMTPL"] = this["MMTPL"] || {};
+  this["HBSTPL"] = this["HBSTPL"] || {};
 
 Handlebars.registerPartial("time", Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
@@ -22,7 +22,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   }));
 
-this["MMTPL"]["page_1/now"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["HBSTPL"]["page_1/now"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partials, Handlebars.partials); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
@@ -46,5 +46,5 @@ helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partial
   buffer += "</span>\n</p>";
   return buffer;
   });
-  return this["MMTPL"];
+  return this["HBSTPL"];
 })

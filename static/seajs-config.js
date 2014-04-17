@@ -17,11 +17,11 @@ if(seajs.production){
 	],
 	[
 		"templates/index.js",
-		"templates/index.js?163de5709bd1d5dfda7f45552c337f0b"
+		"templates/index.js?d4715132612b10f3d18b3fa14c414277"
 	],
 	[
 		"templates/page_1.js",
-		"templates/page_1.js?2c3d9a17222a42716ae0a23edf13b914"
+		"templates/page_1.js?3841030bb59b66185be3995f019337b2"
 	],
 	[
 		"page/page_2.js",

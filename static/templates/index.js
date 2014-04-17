@@ -1,8 +1,8 @@
 define("templates/index.js", ["handlebars"], function(require, exports, module) {
   var Handlebars = require("handlebars");
-  this["MMTPL"] = this["MMTPL"] || {};
+  this["HBSTPL"] = this["HBSTPL"] || {};
 
-this["MMTPL"]["index/description"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["HBSTPL"]["index/description"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
@@ -16,7 +16,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-this["MMTPL"]["index/title"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["HBSTPL"]["index/title"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
@@ -29,5 +29,5 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
     + "\n</h1>\n";
   return buffer;
   });
-  return this["MMTPL"];
+  return this["HBSTPL"];
 })

@@ -64,20 +64,20 @@ module.exports = function(grunt) {
         }]
       },
       handlebars: {
-          files: [{
-            expand: true,
-            cwd: 'templates',
-            src: '*.js',
-            filter: function(filepath){
-              return grunt.file.exists('.build/' + filepath);
-            },
-            dest: '.build/templates'
-          }]
+        files: [{
+          expand: true,
+          cwd: 'templates',
+          src: '*.js',
+          filter: function(filepath){
+            return grunt.file.exists('.build/' + filepath);
+          },
+          dest: '.build/templates'
+        }]
       }
     },
     handlebars: {
       options: {
-        namespace: 'MMTPL',
+        namespace: 'HBSTPL',
         processName: function(filePath) {
           return filePath.replace(/^templates\//, '').replace(/\.hbs$/, '');
         }
@@ -93,7 +93,7 @@ module.exports = function(grunt) {
       all: {
         options: {
           handlebars_id: 'handlebars',
-          exports: 'this["MMTPL"]',
+          exports: 'this["HBSTPL"]',
         },
         files: {
           src: ['templates/*.js']
@@ -135,16 +135,14 @@ module.exports = function(grunt) {
   // Distribute handlebars modules
   grunt.registerMultiTask('disthbs', 'Distribute handlebars modules', function() {
     this.files.forEach(function(f) {
-      var src = f.src.filter(function(filepath) {
+      f.src.filter(function(filepath) {
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
         } else {
           return true;
         }
-      });
-
-      src.forEach(function(filepath) {
+      }).map(function(filepath) {
           var code = grunt.file.read(filepath);
           var dist_code = code.replace('define("', 'define("dist/');
           var basename = path.basename(filepath)

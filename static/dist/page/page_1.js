@@ -1,2 +1,2 @@
-/*! seajs-build-example - v1.0.1 - 2014-04-15 */
+/*! seajs-build-example - v1.0.1 - 2014-04-16 */
 define("dist/page/page_1",["./base","handlebars","../templates/page_1"],function(a,b,c){var d=a("./base"),e=a("handlebars"),f=a("../templates/page_1")["page_1/now"],g={};g.init=function(){d.navigation("page_1"),g.showNow()},g.showNow=function(){var a=new Date;$(".now").append(f({year:a.getFullYear(),month:a.getMonth()+1,date:a.getDate(),hour:a.getHours(),minute:a.getMinutes(),second:a.getSeconds()}));var b=$(".clock");setInterval(function(){var a=new Date;b.text(e.partials.time({hour:a.getHours(),minute:a.getMinutes(),second:a.getSeconds()}))},1e3)},c.exports=g});

@@ -1,2 +1,2 @@
-/*! seajs-build-example - v1.0.1 - 2014-04-15 */
+/*! seajs-build-example - v1.0.1 - 2014-04-16 */
 define("dist/page/index",["./base","../templates/index","handlebars"],function(a,b,c){var d=a("./base"),e=a("../templates/index")["index/title"],f=a("../templates/index")["index/description"],g={};g.init=function(){d.navigation("index"),g.showPageInfo()},g.showPageInfo=function(){$(".page-info").append(e({title:"首页"})).append(f({desc:"这是一个 seajs 模块化加载自定义构建的简单例子"}))},c.exports=g});
